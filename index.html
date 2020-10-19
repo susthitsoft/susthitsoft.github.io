@@ -1,0 +1,56 @@
+<html>
+<!-- To make Layer checkout responsive on your checkout page.-->
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!--Please add either of the following script to your HTML depending up on your environment-->
+
+<!--For Sandbox--> 
+<script id="context" type="text/javascript" 
+src="https://sandbox-payments.open.money/layer"></script>
+
+<!--OR-->
+
+<!--For Production
+//id="context" type="text/javascript"
+//src="https://payments.open.money/layer"></script>
+-->
+<body>
+  <script>
+var payment_token = 
+var access_key = "43d5f240-11ee-11eb-8b8d-411e2b19597d"
+//You can bind the Layer.checkout initialization script to a button click event.
+//Binding inside a click event open Layer payment page on click of a button
+ Layer.checkout({
+        token: payment_token,
+        accesskey: access_key
+    },
+    function(response) {
+        alert(response.status);
+        console.log(JSON.stringify(response));
+        if (response.status == "captured") {
+           
+           
+           // response.payment_token_id
+           // response.payment_id
+
+        } else if (response.status == "created") {
+
+
+        } else if (response.status == "pending") {
+
+
+        } else if (response.status == "failed") {
+
+
+        } else if (response.status == "cancelled") {
+
+        }
+    },
+    function(err) {
+        //integration errors
+        alert(err)
+    }
+);
+</script>
+<input id="ptoken">
+</body>
